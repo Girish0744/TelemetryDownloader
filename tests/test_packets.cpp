@@ -3,12 +3,14 @@
 
 int main()
 {
-    Packet p;
+    Packet p{};
     p.packetType = HELLO;
     p.sequenceNumber = 1;
     p.payloadLength = 0;
 
-    if (p.packetType == HELLO && p.sequenceNumber == 1 && p.payloadLength == 0)
+    if (p.packetType == HELLO &&
+        p.sequenceNumber == 1 &&
+        p.payloadLength == 0)
     {
         std::cout << "Packet test passed\n";
     }
