@@ -2,6 +2,7 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #include <cstring>
+#include <string>
 #include "../common/packet.h"
 
 #pragma comment(lib, "ws2_32.lib")
@@ -60,7 +61,6 @@ int main()
 
     std::cout << "Client connected successfully\n";
 
-    // ?? Handle multiple requests
     while (true)
     {
         Packet receivedPacket{};
@@ -72,7 +72,6 @@ int main()
             break;
         }
 
-        // HELLO ? VERIFY
         if (receivedPacket.packetType == HELLO)
         {
             std::cout << "HELLO received from client\n";
@@ -87,7 +86,6 @@ int main()
             std::cout << "VERIFY sent to client\n";
         }
 
-        // GET_STATUS
         else if (receivedPacket.packetType == GET_STATUS)
         {
             std::cout << "GET_STATUS received\n";
@@ -103,6 +101,35 @@ int main()
             send(clientSocket, (char*)&statusPacket, sizeof(Packet), 0);
 
             std::cout << "Status sent to client\n";
+        }
+
+        else if (receivedPacket.packetType == DOWNLOAD_TELEMETRY)
+        {
+            std::cout << "DOWNLOAD_TELEMETRY received\n";
+
+            // Send multiple DATA packets
+            for (int i = 0; i < 5; i++)
+            {
+                Packet dataPacket{};
+                dataPacket.packetType = DATA;
+                dataPacket.sequenceNumber = i + 1;
+
+                std::string msg = "DATA_PACKET_" + std::to_string(i + 1);
+                memcpy(dataPacket.payload, msg.c_str(), msg.size());
+                dataPacket.payloadLength = msg.size();
+
+                send(clientSocket, (char*)&dataPacket, sizeof(Packet), 0);
+            }
+
+            // Send ACK (end signal)
+            Packet ackPacket{};
+            ackPacket.packetType = ACK;
+            ackPacket.sequenceNumber = 999;
+            ackPacket.payloadLength = 0;
+
+            send(clientSocket, (char*)&ackPacket, sizeof(Packet), 0);
+
+            std::cout << "Telemetry transfer complete\n";
         }
     }
 
