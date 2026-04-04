@@ -9,6 +9,8 @@
 
 #define PORT 54000
 
+// to create telemetry.bin for testing, run this code once and it will generate a 1MB file filled with random data : TelemetryDownloader-Group2\server>fsutil file createnew telemetry.bin 1048576 
+
 int main()
 {
     WSADATA wsaData;
