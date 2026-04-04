@@ -2,7 +2,7 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #include <cstring>
-#include <string>
+#include <fstream>
 #include "../common/packet.h"
 
 #pragma comment(lib, "ws2_32.lib")
@@ -85,7 +85,6 @@ int main()
 
             std::cout << "VERIFY sent to client\n";
         }
-
         else if (receivedPacket.packetType == GET_STATUS)
         {
             std::cout << "GET_STATUS received\n";
@@ -96,35 +95,55 @@ int main()
 
             const char* msg = "Telemetry Ready";
             strcpy_s(statusPacket.payload, msg);
-            statusPacket.payloadLength = strlen(msg);
+            statusPacket.payloadLength = static_cast<uint32_t>(strlen(msg));
 
             send(clientSocket, (char*)&statusPacket, sizeof(Packet), 0);
 
             std::cout << "Status sent to client\n";
         }
-
         else if (receivedPacket.packetType == DOWNLOAD_TELEMETRY)
         {
             std::cout << "DOWNLOAD_TELEMETRY received\n";
 
-            // Send multiple DATA packets
-            for (int i = 0; i < 5; i++)
+            std::ifstream telemetryFile("telemetry.bin", std::ios::binary);
+
+            if (!telemetryFile.is_open())
+            {
+                std::cout << "Failed to open telemetry.bin\n";
+
+                Packet errorPacket{};
+                errorPacket.packetType = ERROR_PACKET;
+                errorPacket.sequenceNumber = 0;
+                errorPacket.payloadLength = 0;
+
+                send(clientSocket, (char*)&errorPacket, sizeof(Packet), 0);
+                continue;
+            }
+
+            int sequence = 1;
+
+            while (!telemetryFile.eof())
             {
                 Packet dataPacket{};
                 dataPacket.packetType = DATA;
-                dataPacket.sequenceNumber = i + 1;
+                dataPacket.sequenceNumber = sequence++;
 
-                std::string msg = "DATA_PACKET_" + std::to_string(i + 1);
-                memcpy(dataPacket.payload, msg.c_str(), msg.size());
-                dataPacket.payloadLength = msg.size();
+                telemetryFile.read(dataPacket.payload, MAX_PAYLOAD_SIZE);
+                std::streamsize bytesRead = telemetryFile.gcount();
+
+                if (bytesRead <= 0)
+                    break;
+
+                dataPacket.payloadLength = static_cast<uint32_t>(bytesRead);
 
                 send(clientSocket, (char*)&dataPacket, sizeof(Packet), 0);
             }
 
-            // Send ACK (end signal)
+            telemetryFile.close();
+
             Packet ackPacket{};
             ackPacket.packetType = ACK;
-            ackPacket.sequenceNumber = 999;
+            ackPacket.sequenceNumber = sequence;
             ackPacket.payloadLength = 0;
 
             send(clientSocket, (char*)&ackPacket, sizeof(Packet), 0);
