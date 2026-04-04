@@ -89,17 +89,33 @@ int main()
         {
             std::cout << "GET_STATUS received\n";
 
+            std::ifstream checkFile("telemetry.bin", std::ios::binary | std::ios::ate);
+
             Packet statusPacket{};
             statusPacket.packetType = DATA;
             statusPacket.sequenceNumber = 2;
 
-            const char* msg = "Telemetry Ready";
-            strcpy_s(statusPacket.payload, msg);
-            statusPacket.payloadLength = static_cast<uint32_t>(strlen(msg));
+            if (checkFile.is_open())
+            {
+                std::streamsize fileSize = checkFile.tellg();
+                checkFile.close();
+
+                const char* msg = "Telemetry Ready";
+                strcpy_s(statusPacket.payload, msg);
+                statusPacket.payloadLength = static_cast<uint32_t>(strlen(msg));
+
+                std::cout << "Status sent to client. File size: " << fileSize << " bytes\n";
+            }
+            else
+            {
+                const char* msg = "Telemetry File Missing";
+                strcpy_s(statusPacket.payload, msg);
+                statusPacket.payloadLength = static_cast<uint32_t>(strlen(msg));
+
+                std::cout << "Status sent to client. telemetry.bin not found\n";
+            }
 
             send(clientSocket, (char*)&statusPacket, sizeof(Packet), 0);
-
-            std::cout << "Status sent to client\n";
         }
         else if (receivedPacket.packetType == DOWNLOAD_TELEMETRY)
         {
@@ -121,6 +137,7 @@ int main()
             }
 
             int sequence = 1;
+            long long totalBytesSent = 0;
 
             while (!telemetryFile.eof())
             {
@@ -137,6 +154,7 @@ int main()
                 dataPacket.payloadLength = static_cast<uint32_t>(bytesRead);
 
                 send(clientSocket, (char*)&dataPacket, sizeof(Packet), 0);
+                totalBytesSent += bytesRead;
             }
 
             telemetryFile.close();
@@ -148,7 +166,8 @@ int main()
 
             send(clientSocket, (char*)&ackPacket, sizeof(Packet), 0);
 
-            std::cout << "Telemetry transfer complete\n";
+            std::cout << "Telemetry transfer complete. Total bytes sent: "
+                      << totalBytesSent << std::endl;
         }
     }
 
