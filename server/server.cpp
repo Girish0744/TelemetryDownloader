@@ -7,7 +7,7 @@
 
 #pragma comment(lib, "ws2_32.lib")
 
-#define PORT 54000
+#define PORT 55000
 
 // to create telemetry.bin for testing, run this code once and it will generate a 1MB file filled with random data : TelemetryDownloader-Group2\server>fsutil file createnew telemetry.bin 1048576 
 
@@ -103,7 +103,8 @@ int main()
                 checkFile.close();
 
                 const char* msg = "Telemetry Ready";
-                strcpy_s(statusPacket.payload, msg);
+                strncpy(statusPacket.payload, msg, MAX_PAYLOAD_SIZE - 1);
+                statusPacket.payload[MAX_PAYLOAD_SIZE - 1] = '\0';
                 statusPacket.payloadLength = static_cast<uint32_t>(strlen(msg));
 
                 std::cout << "Status sent to client. File size: " << fileSize << " bytes\n";
@@ -111,7 +112,8 @@ int main()
             else
             {
                 const char* msg = "Telemetry File Missing";
-                strcpy_s(statusPacket.payload, msg);
+                strncpy(statusPacket.payload, msg, MAX_PAYLOAD_SIZE - 1);
+                statusPacket.payload[MAX_PAYLOAD_SIZE - 1] = '\0';
                 statusPacket.payloadLength = static_cast<uint32_t>(strlen(msg));
 
                 std::cout << "Status sent to client. telemetry.bin not found\n";
