@@ -89,7 +89,7 @@ int main()
     send(clientSocket, (char*)&download, sizeof(Packet), 0);
 
     // Open file
-    std::ofstream out("telemetry.bin", std::ios::binary);
+    std::ofstream out("download_telemetry.bin", std::ios::binary);
     
     if (!out.is_open())
     {
@@ -126,7 +126,14 @@ int main()
     std::cout << "Total bytes received: " << totalBytesReceived << std::endl;
 
     out.close();
-    std::cout << "Telemetry downloaded successfully\n";
+    if (totalBytesReceived > 0)
+    {
+        std::cout << "Telemetry downloaded successfully\n";
+    }
+    else
+    {
+        std::cout << "Telemetry download failed or file was empty\n";
+    }
 
     closesocket(clientSocket);
     WSACleanup();

@@ -91,7 +91,7 @@ int main()
         {
             std::cout << "GET_STATUS received\n";
 
-            std::ifstream checkFile("telemetry.bin", std::ios::binary | std::ios::ate);
+            std::ifstream checkFile("server/telemetry.bin", std::ios::binary | std::ios::ate);
 
             Packet statusPacket{};
             statusPacket.packetType = DATA;
@@ -125,7 +125,7 @@ int main()
         {
             std::cout << "DOWNLOAD_TELEMETRY received\n";
 
-            std::ifstream telemetryFile("telemetry.bin", std::ios::binary);
+            std::ifstream telemetryFile("server/telemetry.bin", std::ios::binary);
 
             if (!telemetryFile.is_open())
             {
