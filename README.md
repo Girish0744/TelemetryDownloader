@@ -4,23 +4,6 @@
 
 This project is a client-server telemetry downloader system that uses TCP communication and structured packet-based data transfer. The system follows a state-machine design for reliable communication.
 
----
-
-## Final Testing Summary
-
-All tests have been verified and are passing as of the final submission.
-
-| Test Level | Test File | Tests | Assertions | Status |
-|------------|-----------|-------|------------|--------|
-| **Unit Testing** | `test_packets.cpp` | 24 | 104 | ✅ All Passed |
-| **Integration Testing** | `test_socket.cpp` | 6 | 26 | ✅ All Passed |
-| **System Testing** | `test_system.bat` | 1 (end-to-end) | 1MB file verified | ✅ Passed |
-
-**Total: 31 tests, 130+ assertions — all passing.**
-
-* **Unit Tests** — Packet struct layout, enum values, payload handling, serialization/deserialization round-trips, protocol-specific construction patterns, and edge cases.
-* **Integration Tests** — Winsock socket creation, bind, listen, connect, accept, and a full packet exchange lifecycle over TCP.
-* **System Test** — Automated end-to-end test that starts the server, runs the client, transfers a 1MB telemetry file (1,048,576 bytes), and verifies byte-exact file integrity.
 
 ---
 
@@ -116,6 +99,26 @@ g++ -std=c++11 -Wall -o test_socket.exe test_main.cpp test_socket.cpp -lws2_32
 ---
 
 ## Testing
+
+---
+
+## Final Testing Summary
+
+All tests have been verified and are passing as of the final submission.
+
+| Test Level | Test File | Tests | Assertions | Status |
+|------------|-----------|-------|------------|--------|
+| **Unit Testing** | `test_packets.cpp` | 24 | 104 | ✅ All Passed |
+| **Integration Testing** | `test_socket.cpp` | 6 | 26 | ✅ All Passed |
+| **System Testing** | `test_system.bat` | 1 (end-to-end) | 1MB file verified | ✅ Passed |
+
+**Total: 31 tests, 130+ assertions — all passing.**
+
+* **Unit Tests** — Packet struct layout, enum values, payload handling, serialization/deserialization round-trips, protocol-specific construction patterns, and edge cases.
+* **Integration Tests** — Winsock socket creation, bind, listen, connect, accept, and a full packet exchange lifecycle over TCP.
+* **System Test** — Automated end-to-end test that starts the server, runs the client, transfers a 1MB telemetry file (1,048,576 bytes), and verifies byte-exact file integrity.
+
+--- 
 
 The project has three levels of testing:
 
