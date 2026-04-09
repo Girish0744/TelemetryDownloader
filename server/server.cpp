@@ -9,7 +9,8 @@
 
 #define PORT 55000
 
-// to create telemetry.bin for testing, run this code once and it will generate a 1MB file filled with random data : TelemetryDownloader-Group2\server>fsutil file createnew telemetry.bin 1048576 
+// Create telemetry.bin in the server folder using:
+// fsutil file createnew telemetry.bin 1048576
 
 int main()
 {
@@ -91,7 +92,7 @@ int main()
         {
             std::cout << "GET_STATUS received\n";
 
-            std::ifstream checkFile("server/telemetry.bin", std::ios::binary | std::ios::ate);
+            std::ifstream checkFile("telemetry.bin", std::ios::binary | std::ios::ate);
 
             Packet statusPacket{};
             statusPacket.packetType = DATA;
@@ -125,7 +126,7 @@ int main()
         {
             std::cout << "DOWNLOAD_TELEMETRY received\n";
 
-            std::ifstream telemetryFile("server/telemetry.bin", std::ios::binary);
+            std::ifstream telemetryFile("telemetry.bin", std::ios::binary);
 
             if (!telemetryFile.is_open())
             {
