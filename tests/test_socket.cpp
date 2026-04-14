@@ -190,3 +190,65 @@ TEST_CASE("Full socket lifecycle with packet exchange", "[socket][lifecycle]")
     closesocket(serverSock);
     WSACleanup();
 }
+
+TEST_CASE("Client ACK response to DATA packets", "[socket][ack]")
+{
+    WSADATA wsaData;
+    WSAStartup(MAKEWORD(2, 2), &wsaData);
+
+    SOCKET serverSock = socket(AF_INET, SOCK_STREAM, 0);
+    int opt = 1;
+    setsockopt(serverSock, SOL_SOCKET, SO_REUSEADDR, (const char*)&opt, sizeof(opt));
+
+    sockaddr_in serverAddr{};
+    serverAddr.sin_family = AF_INET;
+    serverAddr.sin_port = htons(TEST_PORT);
+    serverAddr.sin_addr.s_addr = INADDR_ANY;
+
+    bind(serverSock, (sockaddr*)&serverAddr, sizeof(serverAddr));
+    listen(serverSock, 5);
+
+    SOCKET clientSock = socket(AF_INET, SOCK_STREAM, 0);
+    sockaddr_in connectAddr{};
+    connectAddr.sin_family = AF_INET;
+    connectAddr.sin_port = htons(TEST_PORT);
+    connectAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
+
+    connect(clientSock, (sockaddr*)&connectAddr, sizeof(connectAddr));
+
+    sockaddr_in clientAddr{};
+    int clientSize = sizeof(clientAddr);
+    SOCKET acceptedSock = accept(serverSock, (sockaddr*)&clientAddr, &clientSize);
+
+    // --- Server sends a DATA packet ---
+    Packet dataPacket{};
+    dataPacket.packetType = DATA;
+    dataPacket.sequenceNumber = 42;
+    dataPacket.payloadLength = 10;
+    strcpy(dataPacket.payload, "TestData");
+
+    send(acceptedSock, (char*)&dataPacket, sizeof(Packet), 0);
+
+    // --- Client receives DATA and sends ACK ---
+    Packet recvdData{};
+    recv(clientSock, (char*)&recvdData, sizeof(Packet), 0);
+    REQUIRE(recvdData.packetType == DATA);
+    REQUIRE(recvdData.sequenceNumber == 42);
+
+    Packet ackPacket{};
+    ackPacket.packetType = ACK;
+    ackPacket.sequenceNumber = recvdData.sequenceNumber;
+    ackPacket.payloadLength = 0;
+    send(clientSock, (char*)&ackPacket, sizeof(Packet), 0);
+
+    // --- Server receives ACK ---
+    Packet recvdAck{};
+    recv(acceptedSock, (char*)&recvdAck, sizeof(Packet), 0);
+    REQUIRE(recvdAck.packetType == ACK);
+    REQUIRE(recvdAck.sequenceNumber == 42);
+
+    closesocket(acceptedSock);
+    closesocket(clientSock);
+    closesocket(serverSock);
+    WSACleanup();
+}
