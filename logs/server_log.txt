@@ -1,0 +1,128 @@
+[2026-04-14 14:08:08] Starting server...
+[2026-04-14 14:08:08] Server listening on port 55000
+[2026-04-14 14:08:44] Client connected successfully. State: CONNECTED
+[2026-04-14 14:08:44] HELLO received from client
+[2026-04-14 14:08:44] VERIFY sent to client
+[2026-04-14 14:08:44] GET_STATUS received
+[2026-04-14 14:08:44] Status sent to client. File size: 1048576 bytes
+[2026-04-14 14:08:44] State changed to: READY
+[2026-04-14 14:08:44] DOWNLOAD_TELEMETRY received. State changed to: TRANSFERRING
+[2026-04-14 14:08:44] Sent DATA packet seq 1, waiting for ACK...
+[2026-04-14 14:08:44] Received ACK for seq 1
+[2026-04-14 14:08:44] Sent DATA packet seq 101, waiting for ACK...
+[2026-04-14 14:08:44] Received ACK for seq 101
+[2026-04-14 14:08:44] Sent DATA packet seq 201, waiting for ACK...
+[2026-04-14 14:08:44] Received ACK for seq 201
+[2026-04-14 14:08:45] Sent DATA packet seq 301, waiting for ACK...
+[2026-04-14 14:08:45] Received ACK for seq 301
+[2026-04-14 14:08:45] Sent DATA packet seq 401, waiting for ACK...
+[2026-04-14 14:08:45] Received ACK for seq 401
+[2026-04-14 14:08:45] Sent DATA packet seq 501, waiting for ACK...
+[2026-04-14 14:08:45] Received ACK for seq 501
+[2026-04-14 14:08:45] Sent DATA packet seq 601, waiting for ACK...
+[2026-04-14 14:08:45] Received ACK for seq 601
+[2026-04-14 14:08:45] Sent DATA packet seq 701, waiting for ACK...
+[2026-04-14 14:08:45] Received ACK for seq 701
+[2026-04-14 14:08:45] Sent DATA packet seq 801, waiting for ACK...
+[2026-04-14 14:08:45] Received ACK for seq 801
+[2026-04-14 14:08:45] Sent DATA packet seq 901, waiting for ACK...
+[2026-04-14 14:08:45] Received ACK for seq 901
+[2026-04-14 14:08:45] Sent DATA packet seq 1001, waiting for ACK...
+[2026-04-14 14:08:45] Received ACK for seq 1001
+[2026-04-14 14:08:45] Telemetry transfer complete. Total bytes sent: 1048576
+[2026-04-14 14:08:45] Server shutting down.
+[2026-04-14 14:16:32] Starting server...
+[2026-04-14 14:16:32] Server listening on port 55000
+[2026-04-14 14:16:41] Client connected successfully. State: CONNECTED
+[2026-04-14 14:16:41] HELLO received from client
+[2026-04-14 14:16:41] VERIFY sent to client
+[2026-04-14 14:16:41] GET_STATUS received
+[2026-04-14 14:16:41] Status sent to client. File size: 1048576 bytes
+[2026-04-14 14:16:41] State changed to: READY
+[2026-04-14 14:16:41] DOWNLOAD_TELEMETRY received. State changed to: TRANSFERRING
+[2026-04-14 14:16:41] Sent DATA packet seq 1, waiting for ACK...
+[2026-04-14 14:16:41] Received ACK for seq 1
+[2026-04-14 14:16:41] Sent DATA packet seq 101, waiting for ACK...
+[2026-04-14 14:16:41] Received ACK for seq 101
+[2026-04-14 14:16:41] Sent DATA packet seq 201, waiting for ACK...
+[2026-04-14 14:16:41] Received ACK for seq 201
+[2026-04-14 14:16:41] Sent DATA packet seq 301, waiting for ACK...
+[2026-04-14 14:16:41] Received ACK for seq 301
+[2026-04-14 14:16:41] Sent DATA packet seq 401, waiting for ACK...
+[2026-04-14 14:16:41] Received ACK for seq 401
+[2026-04-14 14:16:41] Sent DATA packet seq 501, waiting for ACK...
+[2026-04-14 14:16:41] Received ACK for seq 501
+[2026-04-14 14:16:41] Sent DATA packet seq 601, waiting for ACK...
+[2026-04-14 14:16:41] Received ACK for seq 601
+[2026-04-14 14:16:41] Sent DATA packet seq 701, waiting for ACK...
+[2026-04-14 14:16:41] Received ACK for seq 701
+[2026-04-14 14:16:41] Sent DATA packet seq 801, waiting for ACK...
+[2026-04-14 14:16:41] Received ACK for seq 801
+[2026-04-14 14:16:41] Sent DATA packet seq 901, waiting for ACK...
+[2026-04-14 14:16:41] Received ACK for seq 901
+[2026-04-14 14:16:41] Sent DATA packet seq 1001, waiting for ACK...
+[2026-04-14 14:16:41] Received ACK for seq 1001
+[2026-04-14 14:16:41] Telemetry transfer complete. Total bytes sent: 1048576
+[2026-04-14 14:16:41] Server shutting down.
+[2026-04-14 15:02:23] System Boot: Initializing TelemetryServer instance.
+[2026-04-14 15:02:23] Server actively listening on port 55000
+[2026-04-14 15:02:30] LIFECYCLE: Client connected successfully. State: CONNECTED
+[2026-04-14 15:02:30] HELLO received. Negotiating sequence...
+[2026-04-14 15:02:30] VERIFY sent.
+[2026-04-14 15:02:30] STATUS sent. File size identified: 1048576 bytes
+[2026-04-14 15:02:30] State: TRANSFERRING. Booting explicit loop.
+[2026-04-14 15:02:30] Dispatched Frame 1. Awaiting explicit ACK.
+[2026-04-14 15:02:30] ACK confirmed for seq 1
+[2026-04-14 15:02:30] Dispatched Frame 101. Awaiting explicit ACK.
+[2026-04-14 15:02:30] ACK confirmed for seq 101
+[2026-04-14 15:02:30] Dispatched Frame 201. Awaiting explicit ACK.
+[2026-04-14 15:02:30] ACK confirmed for seq 201
+[2026-04-14 15:02:30] Dispatched Frame 301. Awaiting explicit ACK.
+[2026-04-14 15:02:30] ACK confirmed for seq 301
+[2026-04-14 15:02:30] Dispatched Frame 401. Awaiting explicit ACK.
+[2026-04-14 15:02:30] ACK confirmed for seq 401
+[2026-04-14 15:02:30] Dispatched Frame 501. Awaiting explicit ACK.
+[2026-04-14 15:02:30] ACK confirmed for seq 501
+[2026-04-14 15:02:30] Dispatched Frame 601. Awaiting explicit ACK.
+[2026-04-14 15:02:30] ACK confirmed for seq 601
+[2026-04-14 15:02:30] Dispatched Frame 701. Awaiting explicit ACK.
+[2026-04-14 15:02:30] ACK confirmed for seq 701
+[2026-04-14 15:02:30] Dispatched Frame 801. Awaiting explicit ACK.
+[2026-04-14 15:02:30] ACK confirmed for seq 801
+[2026-04-14 15:02:30] Dispatched Frame 901. Awaiting explicit ACK.
+[2026-04-14 15:02:30] ACK confirmed for seq 901
+[2026-04-14 15:02:30] Dispatched Frame 1001. Awaiting explicit ACK.
+[2026-04-14 15:02:30] ACK confirmed for seq 1001
+[2026-04-14 15:02:30] COMPLETION: Total transferred bytes = 1048576
+[2026-04-14 15:02:30] Server instance safely dismantled.
+[2026-04-14 15:06:04] System Boot: Initializing TelemetryServer instance.
+[2026-04-14 15:06:04] Server actively listening on port 55000
+[2026-04-14 15:06:13] LIFECYCLE: Client connected successfully. State: CONNECTED
+[2026-04-14 15:06:13] HELLO received. Negotiating sequence...
+[2026-04-14 15:06:13] VERIFY sent.
+[2026-04-14 15:06:13] STATUS sent. File size identified: 1048576 bytes
+[2026-04-14 15:06:13] State: TRANSFERRING. Booting explicit loop.
+[2026-04-14 15:06:13] Dispatched Frame 1. Awaiting explicit ACK.
+[2026-04-14 15:06:13] ACK confirmed for seq 1
+[2026-04-14 15:06:13] Dispatched Frame 101. Awaiting explicit ACK.
+[2026-04-14 15:06:13] ACK confirmed for seq 101
+[2026-04-14 15:06:13] Dispatched Frame 201. Awaiting explicit ACK.
+[2026-04-14 15:06:13] ACK confirmed for seq 201
+[2026-04-14 15:06:13] Dispatched Frame 301. Awaiting explicit ACK.
+[2026-04-14 15:06:13] ACK confirmed for seq 301
+[2026-04-14 15:06:13] Dispatched Frame 401. Awaiting explicit ACK.
+[2026-04-14 15:06:13] ACK confirmed for seq 401
+[2026-04-14 15:06:13] Dispatched Frame 501. Awaiting explicit ACK.
+[2026-04-14 15:06:13] ACK confirmed for seq 501
+[2026-04-14 15:06:13] Dispatched Frame 601. Awaiting explicit ACK.
+[2026-04-14 15:06:13] ACK confirmed for seq 601
+[2026-04-14 15:06:13] Dispatched Frame 701. Awaiting explicit ACK.
+[2026-04-14 15:06:13] ACK confirmed for seq 701
+[2026-04-14 15:06:13] Dispatched Frame 801. Awaiting explicit ACK.
+[2026-04-14 15:06:13] ACK confirmed for seq 801
+[2026-04-14 15:06:13] Dispatched Frame 901. Awaiting explicit ACK.
+[2026-04-14 15:06:13] ACK confirmed for seq 901
+[2026-04-14 15:06:13] Dispatched Frame 1001. Awaiting explicit ACK.
+[2026-04-14 15:06:13] ACK confirmed for seq 1001
+[2026-04-14 15:06:13] COMPLETION: Total transferred bytes = 1048576
+[2026-04-14 15:06:13] Server instance safely dismantled.

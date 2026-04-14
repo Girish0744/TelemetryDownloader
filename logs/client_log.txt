@@ -1,0 +1,84 @@
+[2026-04-14 14:08:44] Starting client...
+[2026-04-14 14:08:44] Connected to server
+[2026-04-14 14:08:44] Sent HELLO to server
+[2026-04-14 14:08:44] Connection verified
+[2026-04-14 14:08:44] Sent GET_STATUS to server
+[2026-04-14 14:08:44] Server Status: Telemetry Ready
+[2026-04-14 14:08:44] Sent DOWNLOAD_TELEMETRY to server
+[2026-04-14 14:08:44] Starting telemetry download...
+[2026-04-14 14:08:44] Received DATA packet seq: 1
+[2026-04-14 14:08:44] Received DATA packet seq: 101
+[2026-04-14 14:08:44] Received DATA packet seq: 201
+[2026-04-14 14:08:45] Received DATA packet seq: 301
+[2026-04-14 14:08:45] Received DATA packet seq: 401
+[2026-04-14 14:08:45] Received DATA packet seq: 501
+[2026-04-14 14:08:45] Received DATA packet seq: 601
+[2026-04-14 14:08:45] Received DATA packet seq: 701
+[2026-04-14 14:08:45] Received DATA packet seq: 801
+[2026-04-14 14:08:45] Received DATA packet seq: 901
+[2026-04-14 14:08:45] Received DATA packet seq: 1001
+[2026-04-14 14:08:45] Received final summary ACK. Transfer complete.
+[2026-04-14 14:08:45] Total bytes received: 1048576
+[2026-04-14 14:08:45] Telemetry downloaded successfully
+[2026-04-14 14:16:41] Starting client...
+[2026-04-14 14:16:41] Connected to server
+[2026-04-14 14:16:41] Sent HELLO to server
+[2026-04-14 14:16:41] Connection verified
+[2026-04-14 14:16:41] Sent GET_STATUS to server
+[2026-04-14 14:16:41] Server Status: Telemetry Ready
+[2026-04-14 14:16:41] Sent DOWNLOAD_TELEMETRY to server
+[2026-04-14 14:16:41] Starting telemetry download...
+[2026-04-14 14:16:41] Received DATA packet seq: 1
+[2026-04-14 14:16:41] Received DATA packet seq: 101
+[2026-04-14 14:16:41] Received DATA packet seq: 201
+[2026-04-14 14:16:41] Received DATA packet seq: 301
+[2026-04-14 14:16:41] Received DATA packet seq: 401
+[2026-04-14 14:16:41] Received DATA packet seq: 501
+[2026-04-14 14:16:41] Received DATA packet seq: 601
+[2026-04-14 14:16:41] Received DATA packet seq: 701
+[2026-04-14 14:16:41] Received DATA packet seq: 801
+[2026-04-14 14:16:41] Received DATA packet seq: 901
+[2026-04-14 14:16:41] Received DATA packet seq: 1001
+[2026-04-14 14:16:41] Received final summary ACK. Transfer complete.
+[2026-04-14 14:16:41] Total bytes received: 1048576
+[2026-04-14 14:16:41] Telemetry downloaded successfully
+[2026-04-14 15:02:30] Booting Client Instance...
+[2026-04-14 15:02:30] Handshake successful. Connected to core TCP layer.
+[2026-04-14 15:02:30] Dispatched formal HELLO identity.
+[2026-04-14 15:02:30] Server granted VERIFY authentication. Proceeding to STATUS.
+[2026-04-14 15:02:30] Extracted Metadata JSON/String: Telemetry Ready
+[2026-04-14 15:02:30] Sent DOWNLOAD assertion. Invoking block writer.
+[2026-04-14 15:02:30] Data frame extraction initialized.
+[2026-04-14 15:02:30] Accepted Packet: 1 | Dispatching Sync-ACK.
+[2026-04-14 15:02:30] Accepted Packet: 101 | Dispatching Sync-ACK.
+[2026-04-14 15:02:30] Accepted Packet: 201 | Dispatching Sync-ACK.
+[2026-04-14 15:02:30] Accepted Packet: 301 | Dispatching Sync-ACK.
+[2026-04-14 15:02:30] Accepted Packet: 401 | Dispatching Sync-ACK.
+[2026-04-14 15:02:30] Accepted Packet: 501 | Dispatching Sync-ACK.
+[2026-04-14 15:02:30] Accepted Packet: 601 | Dispatching Sync-ACK.
+[2026-04-14 15:02:30] Accepted Packet: 701 | Dispatching Sync-ACK.
+[2026-04-14 15:02:30] Accepted Packet: 801 | Dispatching Sync-ACK.
+[2026-04-14 15:02:30] Accepted Packet: 901 | Dispatching Sync-ACK.
+[2026-04-14 15:02:30] Accepted Packet: 1001 | Dispatching Sync-ACK.
+[2026-04-14 15:02:30] Final Summary ACK extracted. Safe extraction achieved.
+[2026-04-14 15:02:30] SUCCESS: Full metric boundary validated -> 1,048,576 bytes constructed securely.
+[2026-04-14 15:06:13] Booting Client Instance...
+[2026-04-14 15:06:13] Handshake successful. Connected to core TCP layer.
+[2026-04-14 15:06:13] Dispatched formal HELLO identity.
+[2026-04-14 15:06:13] Server granted VERIFY authentication. Proceeding to STATUS.
+[2026-04-14 15:06:13] Extracted Metadata JSON/String: Telemetry Ready
+[2026-04-14 15:06:13] Sent DOWNLOAD assertion. Invoking block writer.
+[2026-04-14 15:06:13] Data frame extraction initialized.
+[2026-04-14 15:06:13] Accepted Packet: 1 | Dispatching Sync-ACK.
+[2026-04-14 15:06:13] Accepted Packet: 101 | Dispatching Sync-ACK.
+[2026-04-14 15:06:13] Accepted Packet: 201 | Dispatching Sync-ACK.
+[2026-04-14 15:06:13] Accepted Packet: 301 | Dispatching Sync-ACK.
+[2026-04-14 15:06:13] Accepted Packet: 401 | Dispatching Sync-ACK.
+[2026-04-14 15:06:13] Accepted Packet: 501 | Dispatching Sync-ACK.
+[2026-04-14 15:06:13] Accepted Packet: 601 | Dispatching Sync-ACK.
+[2026-04-14 15:06:13] Accepted Packet: 701 | Dispatching Sync-ACK.
+[2026-04-14 15:06:13] Accepted Packet: 801 | Dispatching Sync-ACK.
+[2026-04-14 15:06:13] Accepted Packet: 901 | Dispatching Sync-ACK.
+[2026-04-14 15:06:13] Accepted Packet: 1001 | Dispatching Sync-ACK.
+[2026-04-14 15:06:13] Final Summary ACK extracted. Safe extraction achieved.
+[2026-04-14 15:06:13] SUCCESS: Full metric boundary validated -> 1,048,576 bytes constructed securely.

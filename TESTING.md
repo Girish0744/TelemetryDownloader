@@ -109,7 +109,7 @@ Passed all 24 test cases with 104 assertions.
   Running Socket Integration Tests
 ============================================
 
-Passed all 6 test cases with 26 assertions.
+Passed all 7 test cases with 30 assertions.
 
 ============================================
   All Tests Passed!
