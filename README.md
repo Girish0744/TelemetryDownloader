@@ -1,4 +1,6 @@
 # TelemetryDownloader-Group2
+Girish Bhuteja, Rudra Patel, Dhyey Bhatt
+CSCN74000 - Software Safety and Reliability
 
 ## Project Overview
 
