@@ -2,21 +2,18 @@
 
 ## Project Overview
 
-This project is a client-server telemetry downloader system that uses TCP communication and structured packet-based data transfer. The system follows a state-machine design for reliable communication.
-
-
----
+So, this project is basically a client-server telemetry downloader system. We decided to use TCP communication along with structured packet-based data transfer because it’s much more reliable. I think keeping the connection stable is super important, so that's why we did an explicit Object-Oriented state-machine design to handle the connections securely.
 
 ## Folder Structure
 
-* client/ : client application
-* server/ : server application
-* common/ : shared packet definitions
-* tests/ : unit, integration, and system tests
-* telemetry_data/ : telemetry files
-* logs/ : logs for packets
+Here's how we laid everything out:
 
----
+* client/ : This is our client application
+* server/ : This houses the server application
+* common/ : We put shared packet definitions here so both apps can easily use them
+* tests/ : All our unit, integration, and system tests
+* telemetry_data/ : The actual telemetry files go here
+* logs/ : So this will hold all the generated logs for packets during transfers
 
 ## Technologies Used
 
@@ -26,17 +23,19 @@ This project is a client-server telemetry downloader system that uses TCP commun
 * Catch2 v2 (testing framework)
 * VS Code
 
----
-
 ## Setup Instructions
 
 ### 1. Install Required Tools
 
+You'll need a few things first:
+
 * Install Git
 * Install Visual Studio Code
-* Install MinGW (g++)
+* Install MinGW (for the g++ compiler)
 
 ### 2. Clone the Repository
+
+To get started, simply clone our code:
 
 ```
 git clone https://github.com/RudraPatelhere/TelemetryDownloader-Group2.git
@@ -45,9 +44,7 @@ cd TelemetryDownloader-Group2
 
 ### 3. Open Project
 
-* Open the folder in VS Code
-
----
+Just open the folder up in VS Code and you're good to go!
 
 ## Build Instructions
 
@@ -65,14 +62,14 @@ g++ client/client.cpp -o client/client.exe -lws2_32
 
 ### Build Tests
 
-Build all unit and integration tests at once:
+If you want to build all the unit and integration tests at once, just run:
 
 ```
 cd tests
 run_tests.bat
 ```
 
-Or build individually:
+Or, if you secretly just want to build them individually:
 
 ```
 cd tests
@@ -80,11 +77,11 @@ g++ -std=c++11 -Wall -o test_packets.exe test_main.cpp test_packets.cpp
 g++ -std=c++11 -Wall -o test_socket.exe test_main.cpp test_socket.cpp -lws2_32
 ```
 
----
-
 ## Run Instructions
 
 ### Run Server
+
+Make sure you run the server first!
 
 ```
 .\server\server.exe
@@ -96,31 +93,25 @@ g++ -std=c++11 -Wall -o test_socket.exe test_main.cpp test_socket.cpp -lws2_32
 .\client\client.exe
 ```
 
----
-
 ## Testing
-
----
 
 ## Final Testing Summary
 
-All tests have been verified and are passing as of the final submission.
+We made sure to test everything thoroughly! All tests have been verified and are passing smoothly for our final submission.
 
 | Test Level | Test File | Tests | Assertions | Status |
 |------------|-----------|-------|------------|--------|
 | **Unit Testing** | `test_packets.cpp` | 24 | 104 | ✅ All Passed |
-| **Integration Testing** | `test_socket.cpp` | 6 | 26 | ✅ All Passed |
+| **Integration Testing** | `test_socket.cpp` | 7 | 30 | ✅ All Passed |
 | **System Testing** | `test_system.bat` | 1 (end-to-end) | 1MB file verified | ✅ Passed |
 
-**Total: 31 tests, 130+ assertions — all passing.**
+**Total: 32 tests, 134+ assertions — all passing!**
 
-* **Unit Tests** — Packet struct layout, enum values, payload handling, serialization/deserialization round-trips, protocol-specific construction patterns, and edge cases.
-* **Integration Tests** — Winsock socket creation, bind, listen, connect, accept, and a full packet exchange lifecycle over TCP.
-* **System Test** — Automated end-to-end test that starts the server, runs the client, transfers a 1MB telemetry file (1,048,576 bytes), and verifies byte-exact file integrity.
+* **Unit Tests** — We checked our packet struct layout, enum values, payload handling, serialization/deserialization round-trips, and edge cases.
+* **Integration Tests** — This covers our Winsock socket creation, bind, listen, connect, accept, and our explicit ACK lifecycle over TCP.
+* **System Test** — So this will run an automated end-to-end test that starts the server, runs the client, transfers a 1MB telemetry file (precisely 1,048,576 bytes), and verifies byte-exact file integrity.
 
---- 
-
-The project has three levels of testing:
+So yeah, the project essentially has three levels of testing:
 
 ### 1. Unit Tests (Packet Serialization)
 
@@ -133,7 +124,7 @@ cd tests
 
 ### 2. Integration Tests (Socket Verification)
 
-Tests Winsock socket creation, bind, listen, connect, and a full packet exchange lifecycle.
+Tests Winsock socket creation, bind, listen, connect, and a full packet exchange lifecycle. That's why we did explicit Stop-and-Wait ACK tests here.
 
 ```
 cd tests
@@ -142,7 +133,7 @@ cd tests
 
 ### 3. System Test (End-to-End File Transfer)
 
-Runs server.exe and client.exe together, transfers a 1MB file, and verifies byte-exact integrity.
+Runs `server.exe` and `client.exe` together, transfers the 1MB file, and verifies byte-exact integrity.
 
 ```
 tests\test_system.bat
@@ -163,27 +154,24 @@ run_tests.bat
 .\test_socket.exe "[socket]"       :: Run only socket-tagged tests
 ```
 
----
-
 ## Features
+
+I think our implementation covers a lot of solid ground:
 
 * TCP client-server communication
 * Structured packet-based messaging
 * Telemetry data transfer
-* Modular architecture
-* Unit testing with Catch2 v2 framework (24 packet tests, 6 socket tests)
+* Highly decoupled Object-Oriented modular architecture
+* Persistent filesystem logging utility
+* Unit testing with Catch2 v2 framework
 * Integration testing for Winsock socket operations
 * System testing with automated 1MB file transfer verification
 
----
-
 ## Notes
 
-* Start server before client
-* Always pull latest code before working
-* Shared structures are in common/
-
----
+* Always start the server before the client
+* Make sure you pull the latest code before working!
+* Shared structures are logically placed in the `common/` folder
 
 ## Contributors
 

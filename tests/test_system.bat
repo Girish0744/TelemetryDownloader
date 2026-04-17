@@ -33,10 +33,8 @@ echo   [OK] Ready for fresh download.
 echo.
 
 :: ----- Step 3: Start server in background -----
-echo [Step 3] Starting server.exe...
-cd server
-start /B "" server.exe > nul 2>&1
-cd ..
+echo [Step 3] Starting server.exe from root...
+start /B "" server\server.exe > nul 2>&1
 echo   [OK] Server started in background.
 echo.
 
