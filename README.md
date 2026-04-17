@@ -101,9 +101,9 @@ We made sure to test everything thoroughly! All tests have been verified and are
 
 | Test Level | Test File | Tests | Assertions | Status |
 |------------|-----------|-------|------------|--------|
-| **Unit Testing** | `test_packets.cpp` | 24 | 104 | ✅ All Passed |
-| **Integration Testing** | `test_socket.cpp` | 7 | 30 | ✅ All Passed |
-| **System Testing** | `test_system.bat` | 1 (end-to-end) | 1MB file verified | ✅ Passed |
+| **Unit Testing** | `test_packets.cpp` | 24 | 104 | All Passed |
+| **Integration Testing** | `test_socket.cpp` | 7 | 30 | All Passed |
+| **System Testing** | `test_system.bat` | 1 (end-to-end) | 1MB file verified | Passed |
 
 **Total: 32 tests, 134+ assertions — all passing!**
 
